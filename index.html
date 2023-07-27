@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+</head>
+<body>
+<button type="button" onclick="transformation ()">Transform Coordinates</button>
+<table>
+<tr><td>X-Shift</td><td><input type="number" id="ys"></td></tr>
+<tr><td>Y-Shift</td><td><input type="number" id="xs"></td></tr>
+<tr><td>y</td><td><input type="number" id="y"></td></tr>
+<tr><td>x</td><td><input type="number" id="x"></td></tr>
+<tr><td>rotation</td><td><input type="number" id="r"></td></tr>
+</table>
+<p id="transf"></p>
+
+<script>
+function transformation() {
+var ys = document.getElementById("ys").value;
+var xs = document.getElementById("xs").value;
+var y = document.getElementById("y").value;
+var x = document.getElementById("x").value;
+var tht = document.getElementById("r").value;
+
+var Y = Math.pow(ys, 1) + Math.pow(x, 1)*Math.cos(tht*Math.PI/180) + Math.pow(y, 1)*Math.sin(tht*Math.PI/180);
+var X = Math.pow(xs, 1) - Math.pow(x, 1)*Math.sin(tht*Math.PI/180) + Math.pow(y, 1)*Math.cos(tht*Math.PI/180);
+
+var Y = Y.toFixed(3);
+var X = X.toFixed(3);
+
+if (ys == "" || xs == "" || y == "" || x == "" || tht == "") {
+document.getElementById("transf").innerHTML = "Please insert values in all input fields!";
+}else
+document.getElementById("transf").innerHTML = "Y =" + " " + Y + "<br>" + "X =" + " " + X;
+
+}
+</script>
+</body>
+</html
